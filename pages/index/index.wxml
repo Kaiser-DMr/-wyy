@@ -1,0 +1,89 @@
+<!--pages/index/index.wxml-->
+<view class="homewyy">
+  <swiper class="homeimg" circular indicator-active-color="#d43c33" indicator-dots autoplay>
+    <swiper-item class="homeimg-item" wx:for="{{lunboimgs}}" wx:for-item='lunboimgs' wx:key="id">
+      <image class="homeimg-item-img" src="{{lunboimgs.pic}}" lazy-load>
+      </image>
+    </swiper-item>
+
+  </swiper>
+  <view class="nav" bindtap="gotuijian">
+    <view class="navitem">
+      <view class="iconfont icon-meirituijian-"></view>
+      <text class="navitem-txt" >每日推荐</text>
+    </view>
+
+    <view class="navitem">
+      <view class="iconfont icon-gedan1"></view>
+      <text class="navitem-txt">歌单</text>
+    </view>
+
+    <view class="navitem">
+      <view class="iconfont icon-icon-ranking"></view>
+      <text class="navitem-txt">排行榜</text>
+    </view>
+
+    <view class="navitem">
+      <view class="iconfont icon-diantai"></view>
+      <text class="navitem-txt">电台</text>
+    </view>
+
+    <view class="navitem">
+      <view class="iconfont icon-zhiboguankanliangbofangsheyingshexiangjixianxing"></view>
+      <text class="navitem-txt">美女直播</text>
+    </view>
+  </view>
+  <view class=" recommend">
+    <!-- <view class="recommend-hd">
+      <view>推荐歌曲</view>
+      <view class="recommend-title">
+        <text>为你精心推荐</text>
+        <text class="recommend-btn">查看更多</text>
+      </view>
+    </view> -->
+    <Reacommend title="推荐歌曲" title2="为你精心推荐"></Reacommend>
+    <!-- 推荐滚动图--------------------- -->
+    <view class="recommend-roll">
+      <scroll-view class="recommend-roll-img" scroll-x scroll-with-animation enable-flex>
+        <view class="recommend-roll-wr" wx:for="{{recommend_roll}}" wx:key="id">
+          <image class="recommend-roll-imgas" src="{{item.picUrl}}">
+          </image>
+          <view class="recommend-roll-title">{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 音乐推荐---------------------------- -->
+  <view class="Musicrecommend">
+    <Reacommend title="排行榜" title2="热歌风向榜"></Reacommend>
+
+    <swiper class="Musicrecommend-lb" next-margin="110"  >
+      <swiper-item class="Musicrecommend-lb-hd" wx:for="{{Musicrecommend}}" wx:key="id">
+        <view class="Musicrecommend-lb-hd-phb">
+          <view class="Musicrecommend-lb-hd-phbname">{{item.name}}</view>
+               <view class="Musicrecommend-lb-hd-phb-ms" 
+               wx:for="{{item.museinfo.museinfo}}"
+               wx:for-item="itemName"
+               wx:for-index="idx"
+               wx:key="id"
+               >    
+                    <image src="{{itemName.picUrl}}" lazy-load></image>
+                     <text class="paiming">{{idx+1}}</text>
+                     <view class="msname">{{itemName.name}}</view>
+                </view>
+                
+        </view>
+      </swiper-item>
+
+
+      
+      
+      
+
+      
+    </swiper>
+
+  </view>
+
+
+</view>
